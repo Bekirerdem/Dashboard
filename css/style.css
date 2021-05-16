@@ -1,0 +1,452 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.container .navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: #003147;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+@media (max-width: 992px) {
+  .container .navigation {
+    left: -300px;
+  }
+}
+
+.container .navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.container .navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  transition: 0.3s;
+}
+
+.container .navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+}
+
+.container .navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.container .navigation ul li a .icon .fab, .container .navigation ul li a .icon .fas {
+  color: #fff;
+  font-size: 24px;
+}
+
+.container .navigation ul li a .title {
+  display: block;
+  padding: 0 10px;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+.container .navigation ul li:hover {
+  background: #03a9f4;
+}
+
+.container .navigation ul li:nth-child(1) {
+  margin-bottom: 20px;
+}
+
+.container .navigation ul li:nth-child(1):hover {
+  background: transparent;
+}
+
+.container .navigation.active {
+  width: 60px;
+}
+
+@media (max-width: 992px) {
+  .container .navigation.active {
+    left: 0;
+  }
+}
+
+.container .main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #f5f5f5;
+  transition: 0.5s;
+}
+
+@media (max-width: 992px) {
+  .container .main {
+    width: 100%;
+    left: 0;
+  }
+}
+
+.container .main .topbar {
+  width: 100%;
+  background: #fff;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.container .main .topbar .toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.container .main .topbar .toggle::before {
+  content: '\f0c9';
+  font-family: fontAwesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  font-size: 24px;
+  text-align: center;
+  color: #111;
+}
+
+.container .main .topbar .search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+
+.container .main .topbar .search label {
+  position: relative;
+  width: 100%;
+}
+
+.container .main .topbar .search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  font-weight: 500;
+  border-color: #111;
+  outline: none;
+  padding-left: 30px;
+}
+
+.container .main .topbar .search label .fas {
+  position: absolute;
+  left: 12px;
+  top: 3px;
+  font-size: 16px;
+}
+
+.container .main .topbar .user {
+  position: relative;
+  min-width: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.container .main .topbar .user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container .main.active {
+  width: calc(100% - 60px);
+  left: 60px;
+}
+
+@media (max-width: 992px) {
+  .container .main.active {
+    width: calc(100% - 60px);
+    left: 60px;
+  }
+}
+
+.container .cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+@media (max-width: 992px) {
+  .container .cardBox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .container .cardBox {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.container .cardBox .card {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.container .cardBox .card .numbers {
+  position: relative;
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.container .cardBox .card .cardName {
+  color: #999;
+}
+
+.container .cardBox .card .iconBox {
+  font-size: 2.5em;
+  color: #03a9f4;
+}
+
+.container .details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  padding-top: 0;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 2fr 1fr;
+}
+
+@media (max-width: 768px) {
+  .container .details {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.container .details .recentOrders {
+  position: relative;
+  min-height: 475px;
+  background: #fff;
+  padding: 20px;
+}
+
+@media (max-width: 480px) {
+  .container .details .recentOrders {
+    overflow-x: auto;
+  }
+}
+
+.container .details .recentOrders .cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.container .details .recentOrders .cardHeader h2 {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .container .details .recentOrders .cardHeader h2 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.container .details .recentOrders .cardHeader .btn {
+  position: relative;
+  padding: 5px 10px;
+  background: #03a9f4;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+@media (max-width: 480px) {
+  .container .details .recentOrders table {
+    width: 600px;
+  }
+}
+
+.container .details .recentOrders table tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.container .details .recentOrders table tbody tr td {
+  padding: 9px 5px;
+}
+
+.container .details .recentOrders table tbody tr td .status {
+  position: relative;
+  padding: 2px 4px;
+  background: #f00;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.container .details .recentOrders table tbody tr td .delivered {
+  background: #8de02c;
+}
+
+.container .details .recentOrders table tbody tr td .pending {
+  background: #f9ca3f;
+}
+
+.container .details .recentOrders table tbody tr td .return {
+  background: #f00;
+}
+
+.container .details .recentOrders table tbody tr td .inprogress {
+  background: #1795ce;
+}
+
+.container .details .recentOrders table tbody tr td:last-child {
+  text-align: right;
+}
+
+.container .details .recentOrders table tbody tr td:nth-child(2) {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.container .details .recentOrders table tbody tr td:nth-child(3) {
+  text-align: center;
+}
+
+.container .details .recentOrders table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.container .details .recentOrders table tbody tr:hover {
+  background: #03a9f4;
+  color: #fff;
+}
+
+.container .details .recentOrders table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  .container .details .recentOrders table {
+    width: 600px;
+  }
+}
+
+.container .details .recentOrders table thead tr td {
+  font-weight: 600;
+}
+
+.container .details .recentOrders table thead tr td:last-child {
+  text-align: right;
+}
+
+.container .details .recentOrders table thead tr td:nth-child(2) {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.container .details .recentOrders table thead tr td:nth-child(3) {
+  text-align: center;
+}
+
+.container .details .recentCustomers {
+  position: relative;
+  min-height: 475px;
+  background: #fff;
+  padding: 20px;
+}
+
+.container .details .recentCustomers .imgBx {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.container .details .recentCustomers .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container .details .recentCustomers table {
+  display: block;
+}
+
+.container .details .recentCustomers table tbody {
+  display: block;
+}
+
+.container .details .recentCustomers table tbody tr {
+  display: block;
+}
+
+.container .details .recentCustomers table tbody tr td {
+  padding: 7px 10px;
+}
+
+.container .details .recentCustomers table tbody tr td h4 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2em;
+}
+
+.container .details .recentCustomers table tbody tr td h4 span {
+  font-size: 14px;
+  color: #999;
+}
+
+.container .details .recentCustomers table tbody tr:hover,
+.container .details .recentCustomers table tbody tr:hover td h4 span {
+  background: #03a9f4;
+  color: #fff;
+}
+/*# sourceMappingURL=style.css.map */
