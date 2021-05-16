@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+
+    .navigation {
+        position: fixed;
+        width: 300px;
+        height: 100%;
+        background: #003147;
+        transition: 0.5s;
+        overflow: hidden;
+
+        @media (max-width: 992px) {
+            left: -300px;
+        }
+
+        ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            li {
+                position: relative;
+                width: 100%;
+                list-style: none;
+                transition: 0.3s;
+
+                a {
+                    position: relative;
+                    display: block;
+                    width: 100%;
+                    display: flex;
+                    text-decoration: none;
+                    color: #fff;
+
+                    .icon {
+                        position: relative;
+                        display: block;
+                        min-width: 60px;
+                        height: 60px;
+                        line-height: 60px;
+                        text-align: center;
+
+                        .fab, .fas {
+                            color: #fff;
+                            font-size: 24px;
+                        }
+                    }
+
+                    .title {
+                        display: block;
+                        padding: 0 10px;
+                        line-height: 60px;
+                        white-space: nowrap;
+                    }
+                }
+            }
+
+            li:hover {
+                background: #03a9f4;
+            }
+
+            li:nth-child(1) {
+                margin-bottom: 20px;
+            }
+
+            li:nth-child(1):hover {
+                background: transparent;
+            }
+        }
+    }
+
+    .navigation.active {
+        width: 60px;
+
+        @media (max-width: 992px) {
+            left: 0;
+        }
+    }
+
+    .main {
+        position: absolute;
+        width: calc(100% - 300px);
+        left: 300px;
+        min-height: 100vh;
+        background: #f5f5f5;
+        transition: 0.5s;
+
+        @media (max-width: 992px) {
+            width: 100%;
+            left: 0;
+        }
+
+        .topbar {
+            width: 100%;
+            background: #fff;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+
+            .toggle {
+                position: relative;
+                width: 60px;
+                height: 60px;
+                cursor: pointer;
+            }
+
+            .toggle::before {
+                content: '\f0c9';
+                font-family: fontAwesome;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                line-height: 60px;
+                font-size: 24px;
+                text-align: center;
+                color: #111;
+            }
+
+            .search {
+                position: relative;
+                width: 400px;
+                margin: 0 10px;
+
+                label {
+                    position: relative;
+                    width: 100%;
+
+                    input {
+                        width: 100%;
+                        height: 40px;
+                        border-radius: 40px;
+                        padding: 5px 20px;
+                        font-weight: 500;
+                        border-color: #111;
+                        outline: none;
+                        padding-left: 30px;
+                    }
+
+                    .fas {
+                        position: absolute;
+                        left: 12px;
+                        top: 3px;
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .user {
+                position: relative;
+                min-width: 50px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                cursor: pointer;
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    .main.active {
+        width: calc(100% - 60px);
+        left: 60px;
+
+        @media (max-width: 992px) {
+            width: calc(100% - 60px);
+            left: 60px;
+        }
+    }
+
+    .cardBox {
+        position: relative;
+        width: 100%;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 480px) {
+            grid-template-columns: repeat(1,1fr);
+        }
+
+        .card {
+          position: relative;  
+          background: #fff;
+          padding: 20px;
+          display: flex;
+          justify-content: space-between;
+          cursor: pointer;
+
+            .numbers {
+              position: relative;
+              font-size: 2em;
+              font-weight: 500
+            }
+
+            .cardName {
+                color: #999;
+            }
+
+            .iconBox {
+                font-size: 2.5em;
+                color: #03a9f4;
+            }
+        }
+    }
+
+    .details {
+        position: relative;
+        width: 100%;
+        padding: 20px;
+        padding-top: 0;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 2fr 1fr;
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .recentOrders {
+            position: relative;
+            min-height: 475px;
+            background: #fff;
+            padding: 20px;
+
+            @media (max-width: 480px) {
+                overflow-x: auto;
+            }
+
+            .cardHeader{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                h2 {
+                    font-weight: 600;
+
+                    @media (max-width: 768px) {
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
+                }
+
+                .btn {
+                    position: relative;
+                    padding: 5px 10px;
+                    background: #03a9f4;
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 6px;
+                }
+            }
+
+            table {
+
+                @media (max-width: 480px) {
+                    width: 600px;
+                }
+
+                tbody {
+
+                    tr {
+                        border-bottom: 1px solid rgba(0,0,0,0.2);
+    
+                        td {
+                            padding: 9px 5px;
+
+                            .status {
+                                position: relative;
+                                padding: 2px 4px;
+                                background: #f00;
+                                color: #fff;
+                                border-radius: 5px;
+                                font-size: 14px;
+                                font-weight: 400;
+                                letter-spacing: 0.5px;
+                            }
+
+                            .delivered {
+                                background: #8de02c;
+                            }
+
+                            .pending {
+                                background: #f9ca3f;
+                            }
+
+                            .return {
+                                background: #f00;
+                            }
+
+                            .inprogress {
+                                background: #1795ce;
+                            }
+                        }
+    
+                        td:last-child {
+                            text-align: right;
+                        }
+    
+                        td:nth-child(2) {
+                            text-align: right;
+                            padding-right: 20px;
+                        }
+
+                        td:nth-child(3) {
+                            text-align: center;
+                        }
+                    }
+
+                    tr:last-child {
+                        border-bottom: none;
+                    }
+
+                    tr:hover {
+                        background: #03a9f4;
+                        color: #fff;
+                    }
+                }
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 10px;
+
+                @media (max-width: 480px) {
+                    width: 600px;
+                }
+    
+                thead {
+    
+                    tr {
+    
+                        td {
+                            font-weight: 600;
+                        }
+        
+                        td:last-child {
+                            text-align: right;
+                        }
+        
+                        td:nth-child(2) {
+                            text-align: right;
+                            padding-right: 20px;
+                        }
+
+                        td:nth-child(3) {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        .recentCustomers {
+            position: relative;
+            min-height: 475px;
+            background: #fff;
+            padding: 20px;
+
+            .imgBx {
+                position: relative;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            table {
+                display: block;
+
+                tbody {
+                    display: block;
+
+                    tr {
+                        display: block;
+
+                        td {
+                            padding: 7px 10px;
+
+                            h4 {
+                                font-size: 16px;
+                                font-weight: 600;
+                                line-height: 1.2em;
+
+                                span {
+                                    font-size: 14px;
+                                    color: #999;
+                                }
+                            }
+                        }
+                    }
+
+                    tr:hover,
+                    tr:hover td h4 span {
+                        background: #03a9f4;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
